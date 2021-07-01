@@ -4,15 +4,25 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>基于 Notion 的笔记写作和博客分享自动化方案 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="个人认为，笔记（Note）、写作（Writing）和分享（Share）是 个人知识管理 重要的组成部分。笔记是知识元素，写作是知识汇总，分享是知识和升华。固然每个人具体实践的方式会尽不相同，不过大家应该都能或多或少感到其中存在一些割裂感： 其一，笔记存在多端同步编辑的刚需，不过随着云笔记解决方案越来越成熟后，这问题现在已经有许多解决方案。其二，笔记草稿和写作正文之间的同步存在许多机械的地方，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于 Notion 的笔记写作和博客分享自动化方案">
+<meta property="og:url" content="http://example.com/2021/05/20/devops/notion_to_markdown_file_automating_solution/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="个人认为，笔记（Note）、写作（Writing）和分享（Share）是 个人知识管理 重要的组成部分。笔记是知识元素，写作是知识汇总，分享是知识和升华。固然每个人具体实践的方式会尽不相同，不过大家应该都能或多或少感到其中存在一些割裂感： 其一，笔记存在多端同步编辑的刚需，不过随着云笔记解决方案越来越成熟后，这问题现在已经有许多解决方案。其二，笔记草稿和写作正文之间的同步存在许多机械的地方，">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.notion.so/image/https%3A%252F%252Fwww.notion.so%252Fimages%252Fpage-cover%252Fwoodcuts_16.jpg">
+<meta property="og:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/737ff770-dc4c-44e3-ba32-90c98bd8bd33/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5/20210701/us-west-2/s3/aws4_request&X-Amz-Date=20210701T134806Z&X-Amz-Expires=86400&X-Amz-Signature=1a1ade31b28899bdf63c6ca8b21bb42d6d9de4ea037d27fcab0e4069b4f30c3d&X-Amz-SignedHeaders=host">
+<meta property="article:published_time" content="2021-05-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-01T13:48:15.798Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Notion">
+<meta property="article:tag" content="知识管理">
+<meta property="article:tag" content="NotionDown">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.notion.so/image/https%3A%252F%252Fwww.notion.so%252Fimages%252Fpage-cover%252Fwoodcuts_16.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,60 +79,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/07/01/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-07-01T13:48:15.770Z" itemprop="datePublished">2021-07-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/01/hello-world/" data-id="ckqkyqvny000134o83y3a33qu" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-devops/notion_to_markdown_file_automating_solution" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-devops/notion_to_markdown_file_automating_solution" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/05/20/devops/notion_to_markdown_file_automating_solution/" class="article-date">
   <time class="dt-published" datetime="2021-05-20T00:00:00.000Z" itemprop="datePublished">2021-05-20</time>
@@ -139,8 +96,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/05/20/devops/notion_to_markdown_file_automating_solution/">基于 Notion 的笔记写作和博客分享自动化方案</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      基于 Notion 的笔记写作和博客分享自动化方案
     </h1>
   
 
@@ -220,205 +177,28 @@ FileName = notion-to-markdown-file-automating-solution
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hexo_elements_showcase" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2015/05/28/hexo_elements_showcase/" class="article-date">
-  <time class="dt-published" datetime="2015-05-28T20:30:05.000Z" itemprop="datePublished">2015-05-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2021/07/01/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          Hello World
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2015/05/28/hexo_elements_showcase/">Elements showcase</a>
-    </h1>
   
+    <a href="/2015/05/28/hexo_elements_showcase/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Elements showcase</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Check out how Tranquilpeak theme display well HTML elements (title, paragraph, blockquote, table and more..). It’s simple and elegant.</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/05/28/hexo_elements_showcase/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2015/05/28/hexo_elements_showcase/" data-id="ckqkyqvo2000434o85w7bcjps" data-title="Elements showcase" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Html-Elements/" rel="tag">Html Elements</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Showcase/" rel="tag">Showcase</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-hexo_chinsese_test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2014/01/02/hexo_chinsese_test/" class="article-date">
-  <time class="dt-published" datetime="2014-01-02T23:30:04.000Z" itemprop="datePublished">2014-01-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2014/01/02/hexo_chinsese_test/">中文測試ト</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>This is a Chinese test post to show you how Chinese is displayed.</p>
-        
-          <p class="article-more-link">
-            <a href="/2014/01/02/hexo_chinsese_test/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2014/01/02/hexo_chinsese_test/" data-id="ckqkyqvo1000334o81b5y87z1" data-title="中文測試ト" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chinsese/" rel="tag">Chinsese</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Showcase/" rel="tag">Showcase</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hexo_japanese_test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2013/01/02/hexo_japanese_test/" class="article-date">
-  <time class="dt-published" datetime="2013-01-02T23:30:04.000Z" itemprop="datePublished">2013-01-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2013/01/02/hexo_japanese_test/">本語テスト</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>This is a Japanese test post to show you how Japanese is displayed.</p>
-        
-          <p class="article-more-link">
-            <a href="/2013/01/02/hexo_japanese_test/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2013/01/02/hexo_japanese_test/" data-id="ckqkyqvo5000834o81m3vb43z" data-title="本語テスト" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Japanese/" rel="tag">Japanese</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Showcase/" rel="tag">Showcase</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hexo_link_post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2012/01/02/hexo_link_post/" class="article-date">
-  <time class="dt-published" datetime="2012-01-02T23:30:04.000Z" itemprop="datePublished">2012-01-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  <h1 itemprop="name">
-    <a class="p-name article-title" href="https://github.com/kaedea/notion-down" target="_blank" itemprop="url">Hello,NotionDown!</a>
-  </h1>
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>This is a link post. Clicking on the link should open <a target="_blank" rel="noopener" href="http://www.hexo.io/">Hexo</a> in a new tab or window.</p>
-        
-          <p class="article-more-link">
-            <a href="/2012/01/02/hexo_link_post/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2012/01/02/hexo_link_post/" data-id="ckqkyqvo4000634o80yhf9dll" data-title="Hello,NotionDown!" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Link/" rel="tag">Link</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Showcase/" rel="tag">Showcase</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
