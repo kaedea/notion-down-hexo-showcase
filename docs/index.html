@@ -73,8 +73,8 @@
   
     <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/07/01/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-07-01T13:57:28.838Z" itemprop="datePublished">2021-07-01</time>
+    <a href="/2021/07/15/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2021-07-15T12:53:33.924Z" itemprop="datePublished">2021-07-15</time>
 </a>
     
   </div>
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/07/01/hello-world/">Hello World</a>
+      <a class="p-name article-title" href="/2021/07/15/hello-world/">Hello World</a>
     </h1>
   
 
@@ -110,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/01/hello-world/" data-id="ckqkz2ph1000134o9cbaucedt" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/15/hello-world/" data-id="ckr4wyhi6000036nrgnftabzi" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -159,59 +159,30 @@
 1. NotionDown
 
 -->
+<!-- draft
+
+1. 背景
+1. Notion
+1. Solution & Workflows
+1. 流程图
+    1. refer：[https://github.com/soruly/trace.moe#overview](https://github.com/soruly/trace.moe#overview)
+1. NotionDown
+
+-->
 
 <p>个人认为，笔记（Note）、写作（Writing）和分享（Share）是 <code>个人知识管理</code> 重要的组成部分。笔记是知识元素，写作是知识汇总，分享是知识和升华。固然每个人具体实践的方式会尽不相同，不过大家应该都能或多或少感到其中存在一些割裂感：</p>
 <p>其一，笔记存在多端同步编辑的刚需，不过随着云笔记解决方案越来越成熟后，这问题现在已经有许多解决方案。其二，笔记草稿和写作正文之间的同步存在许多机械的地方，同一篇文章经常需要在草稿和正文之间来回修订，而大部分情况下这两者的同步是通过复制粘贴和人工比对来完成的，这个过场是写作体验主要割裂感之一。其三，写作正文完成之后的文章分享（对外部署）也是一个麻烦的流程，尽管现在许多静态博客可以通过自动化技术完成部署，不过文章正文和部署用的 MarkDown 文件之间的管理也是个头疼的事情：如果正文和 MD 文件分开处理，两者之间又只能手动同步；如果直接用 MD 文件来写正文，现在的云笔记方案对 MD 文件的管理体验大都很差；如果干脆使用 git 来同步 MD 文件，那基于 git 的笔记同步方案体验也不会好到哪。</p>
 <p>自从改用静态博客代替 WordPress 来发表自己的文章和日志后，我一直沿用” 云笔记写草稿，MD 文件保存正文，手动在草稿和正文之间同步 “这样的原始的写作方案，以上说的几种割裂感我自然也是深有体会。</p>
 <p>几番苦寻更好的云笔记体验方案未果，直到 ta 的出现：<code>Notion</code>。</p>
-<ul>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#notion">Notion</a></li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#workflows">Workflows</a></li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#notiondown">NotionDown</a></li>
-<li>&nbsp;&nbsp;&nbsp;&nbsp;[其他解决方案](# 其他解决方案)</li>
-</ul>
-<h2 id="Notion"><a href="#Notion" class="headerlink" title="Notion"></a>Notion</h2><p><a target="_blank" rel="noopener" href="http://notion.so/">Notion</a> 是一款时下比较流行的云笔记服务，ta 是众多云笔记里面” 最靓的仔 “。基于巧妙和独特的文本存储设计，Notion 可以将你的 Notes、Project Tasks/Plans、Doc/Wikis 以及  等统统整合起来，在 ta 身上我看到了知识管理和项目管理的 “大一统” 的希望。</p>
-<p>Notion 抛弃了传统以段落（paragraph）为原子单位的做法，而是将所有的一切都当做 Block（是 Everything is Block）。一段文本是一个 Block，一张图片也是一个 Block，Block 之间可以随意移动和嵌套。同时 Notion Block 被巧妙地设计成组合模式：一个 Block 可以是单一的 Block 也可以是 BlockGroup。这使得 Notion 可以满足几乎所有的文本关系，一片文章本身就是一个 PageBlock，PageBlock 即可以包含各种类型 TextBlock 也可以包含 BlockGroup（用来存放 Table、Columns 等文本组），甚至文章本身就是一个 BlockGroup（类似于 Folder，用于存放一组子文章）。此外，Notion 的强大之处还在于提供了 CollectionBlock（可以认为是一个简化的 Excel），配合相关的 Notion APIs 我们甚至可以把其当做一个数据库来使用。</p>
-<p>鉴于 Notion 优秀的多端同步服务和和灵活的文本存储功能，我从开始接触到 ta 的时候就产生了基于 Notion 优化一下自己的知识管理方案。不过眼下有两个问题还需进一步观察：其一， Notion 一开始是收费的（而且不便宜），我担心成本不可控收益边际效应大；其二，Notion 并没有 Official APIs，这会影响基于 Notion 的二次开发的稳定性，而稳定性又是自动化技术里非常重要的考量。</p>
-<p>随着 Notion 开放免费的个人账号（Personal Plan）和官方 APIs 计划的展开，这些顾虑都再也不是问题。</p>
-<h2 id="Workflows"><a href="#Workflows" class="headerlink" title="Workflows"></a>Workflows</h2><p>如何优化自己现有的知识管理方案呢，我的基本设想是这样的：</p>
-<ol>
-<li>基于 Notion 写作，所有的文本材料和源数据都统一放在 Notion 上面同步，避免 “冗余写作”。</li>
-<li>使用自动化手段（DevOps）从 Notion 中导出指定文章的 MD 文件，解决笔记和写作正文之间的割裂感。</li>
-<li>同样使用自动化手段导出需要分享的 Notion 文章，自动部署到 Hexo 等静态博客。</li>
-</ol>
-<p>此外如果有需要，作为兜底策略定期导出 Notion 全部笔记并做好版本控制和保存，以优化 Notion 收费的历史记录功能和为需要从 Notion 迁移数据这种状况做准备（尝试过云笔记数据迁移的朋友应该知道我这是什么考量）。</p>
-<p>工作流程示意图如下：</p>
-<p><img src="/assets/notiondown_gong_zuo_liu_cheng_shi_yi_tu_untitled.png" alt="NotionDown 工作流程示意图"></p>
-<h2 id="NotionDown"><a href="#NotionDown" class="headerlink" title="NotionDown"></a>NotionDown</h2><p>基于 CAP 编程原则，一开始我抱着侥幸的心态去 GitHub 上面搜索，还真让我找到了类似的工程 notoma。不过项目还处于 WIP  状态，等了快一年作者还是没有什么动作，Demo 还是处于无法运行的状态，所以我索性自己开始动手了。</p>
-<p>自己写一个 3rd-party 的 Notion APIs 不太现实，好在同样 GitHub 上面已经有先驱做了类似的项目 notion-py，相比这下站个项目的完成度已经非常高了（唯一的遗憾就是尚未支持 Notion private 笔记的访问）。</p>
-<p>基于 notion-py 我写了一个用来支撑自己知识管理的 Notion 笔记导出项目 notion-down，主要原来自动到处 MD 文件和部署博客（配合 circleci）。</p>
-<p>NotionDown 的主要功能如下：</p>
-<ol>
-<li>统一在 Notion 上编辑笔记。</li>
-<li>基于 Notion 笔记解析相应的 MD 文件（支持图片配置）。</li>
-<li>自动部署指定文章到静态博客（Hexo）。</li>
-<li>相关配套的集成功能：图片 CDN 配置，文章内容按渠道配置动态调整（自定义短代码），中英混排优化（pangu）和拼写检查。</li>
-</ol>
-<p>以后是不是可以专心写作了？🤣<del>（鬼咧，正经 Bloger 谁写文章啊，不都是在折腾博客主题吗。）</del></p>
-<h2 id="其他解决方案"><a href="#其他解决方案" class="headerlink" title="其他解决方案"></a>其他解决方案</h2><p>如果只是需要自动把 Notion 文章部署到静态博客，我这发现一个更简单的解决方案：<a target="_blank" rel="noopener" href="https://chenhuichao.com/c32f80ee1ca84d45aaf63ee170e3c267">Notion + GatsbyJs + Netlify 极致的博客体验</a>。</p>
-<p>其基本思路是通过 Netlify 作为 Trigger 触发 GatsbyJs 插件读取 Notion 笔记数据存放到 Gatsby 平台，最终通过 Gatsby 提供的博客服务展示博客内容。有兴趣可以了解 <a target="_blank" rel="noopener" href="https://www.gatsbyjs.com/">Gatsby</a>，这套方案可以节省 circleci 和静态博客 generating 等中间流程。</p>
-<!-- Generated by HexoWriter
-notion-down.version = 0.1.0
-notion-down.revision = b'f1b39d0'
-Title = 基于 Notion 的笔记写作和博客分享自动化方案
-Date = 2021-05-20
-Published = true
-Category = DevOps
-Tag = ['Notion', '知识管理', 'NotionDown']
-FileLocate = devops
-FileName = notion-to-markdown-file-automating-solution
--->
-
+        
+          <p class="article-more-link">
+            <a href="/2021/05/20/devops/notion_to_markdown_file_automating_solution/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/20/devops/notion_to_markdown_file_automating_solution/" data-id="ckqkz2phb000c34o960dxgi00" data-title="基于 Notion 的笔记写作和博客分享自动化方案" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/05/20/devops/notion_to_markdown_file_automating_solution/" data-id="ckr4wyhil000b36nrbnyghjk8" data-title="基于 Notion 的笔记写作和博客分享自动化方案" class="article-share-link">Share</a>
       
       
       
@@ -260,7 +231,7 @@ FileName = notion-to-markdown-file-automating-solution
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2015/05/28/hexo_elements_showcase/" data-id="ckqkz2ph5000434o9c9ss1zj2" data-title="Elements showcase" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2015/05/28/hexo_elements_showcase/" data-id="ckr4wyhig000536nr88u881qn" data-title="Elements showcase" class="article-share-link">Share</a>
       
       
       
@@ -309,7 +280,7 @@ FileName = notion-to-markdown-file-automating-solution
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2014/01/02/hexo_chinsese_test/" data-id="ckqkz2ph3000334o93ndmdbuk" data-title="中文測試ト" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2014/01/02/hexo_chinsese_test/" data-id="ckr4wyhib000136nr3x4saghr" data-title="中文測試ト" class="article-share-link">Share</a>
       
       
       
@@ -358,7 +329,7 @@ FileName = notion-to-markdown-file-automating-solution
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2013/01/02/hexo_japanese_test/" data-id="ckqkz2ph7000634o98ug9db7g" data-title="本語テスト" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2013/01/02/hexo_japanese_test/" data-id="ckr4wyhih000636nr8lccfyk9" data-title="本語テスト" class="article-share-link">Share</a>
       
       
       
@@ -405,7 +376,7 @@ FileName = notion-to-markdown-file-automating-solution
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2012/01/02/hexo_link_post/" data-id="ckqkz2ph8000834o9d7r7g5sy" data-title="Hello,NotionDown!" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2012/01/02/hexo_link_post/" data-id="ckr4wyhii000736nrack18a12" data-title="Hello,NotionDown!" class="article-share-link">Share</a>
       
       
       
@@ -471,7 +442,7 @@ FileName = notion-to-markdown-file-automating-solution
       <ul>
         
           <li>
-            <a href="/2021/07/01/hello-world/">Hello World</a>
+            <a href="/2021/07/15/hello-world/">Hello World</a>
           </li>
         
           <li>
