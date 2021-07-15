@@ -23,6 +23,16 @@ categories:
 1. NotionDown
 
 -->
+<!-- draft
+
+1. 背景
+1. Notion
+1. Solution & Workflows
+1. 流程图
+    1. refer：[https://github.com/soruly/trace.moe#overview](https://github.com/soruly/trace.moe#overview)
+1. NotionDown
+
+-->
 
 个人认为，笔记（Note）、写作（Writing）和分享（Share）是 `个人知识管理` 重要的组成部分。笔记是知识元素，写作是知识汇总，分享是知识和升华。固然每个人具体实践的方式会尽不相同，不过大家应该都能或多或少感到其中存在一些割裂感：
 
@@ -32,58 +42,58 @@ categories:
 
 几番苦寻更好的云笔记体验方案未果，直到 ta 的出现：`Notion`。
 
-* &nbsp;&nbsp;&nbsp;&nbsp;[Notion](#notion)
- * &nbsp;&nbsp;&nbsp;&nbsp;[Workflows](#workflows)
- * &nbsp;&nbsp;&nbsp;&nbsp;[NotionDown](#notiondown)
- * &nbsp;&nbsp;&nbsp;&nbsp;[其他解决方案](# 其他解决方案)
+<!-- more -->
+
+
+<!-- For channel only: Notion -->
+
 
 ## Notion
 
-[Notion](http://notion.so) 是一款时下比较流行的云笔记服务，ta 是众多云笔记里面” 最靓的仔 “。基于巧妙和独特的文本存储设计，Notion 可以将你的 Notes、Project Tasks/Plans、Doc/Wikis 以及  等统统整合起来，在 ta 身上我看到了知识管理和项目管理的 “大一统” 的希望。
+[Notion](http://notion.so) 是一款时下比较流行的云笔记服务，虽然上线比较晚，不过 ta 却是众多云笔记里面” 最靓的仔 “。基于巧妙和独特的文本元素关系设计，Notion 可以将你的 Notes、Project Tasks / Plans、Doc / Wikis 等统统整合起来（还提供许多优秀的 Template 以满足不同的文档需要），在 ta 身上我看到了知识管理和项目管理的 “大一统” 的希望。
 
-Notion 抛弃了传统以段落（paragraph）为原子单位的做法，而是将所有的一切都当做 Block（是 Everything is Block）。一段文本是一个 Block，一张图片也是一个 Block，Block 之间可以随意移动和嵌套。同时 Notion Block 被巧妙地设计成组合模式：一个 Block 可以是单一的 Block 也可以是 BlockGroup。这使得 Notion 可以满足几乎所有的文本关系，一片文章本身就是一个 PageBlock，PageBlock 即可以包含各种类型 TextBlock 也可以包含 BlockGroup（用来存放 Table、Columns 等文本组），甚至文章本身就是一个 BlockGroup（类似于 Folder，用于存放一组子文章）。此外，Notion 的强大之处还在于提供了 CollectionBlock（可以认为是一个简化的 Excel），配合相关的 Notion APIs 我们甚至可以把其当做一个数据库来使用。
+简单来说，Notion 抛弃了传统以段落（paragraph）为原子单位的做法，而是将所有的一切都当做 Block（是 Everything is Block）。一段文本是一个 TextBlock，一张图片也是一个 ImageBlock，Block 之间可以随意移动和嵌套。同时 Notion Block 被巧妙地设计成组合模式：一个 Block 可以是单一的 Block 也可以是 BlockGroup。这使得 Notion 可以满足几乎所有的文本关系，一片文章本身就是一个 PageBlock，PageBlock 即可以包含各种类型 Block 也可以包含 BlockGroup（用来存放 Table、Columns 等文本组），甚至文章本身就是一个 BlockGroup（类似于 Folder，用于存放一组子文章）。此外，Notion 的强大之处还在于 ta 提供了 CollectionBlock（可以认为是一个简化的 Excel），配合相关的 Notion APIs 我们甚至可以把其当做一个数据库来使用。
 
-鉴于 Notion 优秀的多端同步服务和和灵活的文本存储功能，我从开始接触到 ta 的时候就产生了基于 Notion 优化一下自己的知识管理方案。不过眼下有两个问题还需进一步观察：其一， Notion 一开始是收费的（而且不便宜），我担心成本不可控收益边际效应大；其二，Notion 并没有 Official APIs，这会影响基于 Notion 的二次开发的稳定性，而稳定性又是自动化技术里非常重要的考量。
+鉴于 Notion 优秀的多端同步服务和灵活的文本存储功能，我从开始接触到 ta 的时候就产生了 “基于 Notion 优化一下自己的知识管理方案” 的想法。不过眼下有两个问题还需进一步观察：其一， Notion 一开始是收费的（而且不便宜），我担心收益出现边际效应，成本不可控；其二，Notion 并没有 Official APIs，这会影响基于 Notion 的二次开发的稳定性，而稳定性又是自动化实践里非常重要的考量。
 
 随着 Notion 开放免费的个人账号（Personal Plan）和官方 APIs 计划的展开，这些顾虑都再也不是问题。
 
-## Workflows
+## Solution & Workflows
 
 如何优化自己现有的知识管理方案呢，我的基本设想是这样的：
 
 1. 基于 Notion 写作，所有的文本材料和源数据都统一放在 Notion 上面同步，避免 “冗余写作”。
-1. 使用自动化手段（DevOps）从 Notion 中导出指定文章的 MD 文件，解决笔记和写作正文之间的割裂感。
+1. 使用自动化手段（DevOps）从 Notion 中导出指定笔记的 MD 文件，解决笔记和写作正文之间的割裂感：源文件依然可以保留各种草稿、标注和评论等内容，导出的 MD 文件则根据配置只生成指定的正文内容。
 1. 同样使用自动化手段导出需要分享的 Notion 文章，自动部署到 Hexo 等静态博客。
 
-此外如果有需要，作为兜底策略定期导出 Notion 全部笔记并做好版本控制和保存，以优化 Notion 收费的历史记录功能和为需要从 Notion 迁移数据这种状况做准备（尝试过云笔记数据迁移的朋友应该知道我这是什么考量）。
+如果有需要，作为兜底策略可以定期导出 Notion 全部笔记数据并做好保存和版本控制，从而弥补 Notion 付费才能使用的历史记录功能和为需要从 Notion 迁移数据这种状况做准备（尝试过云笔记数据迁移的朋友应该知道这是什么考量）。
 
 工作流程示意图如下：
 
-![NotionDown 工作流程示意图](/assets/notiondown_gong_zuo_liu_cheng_shi_yi_tu_untitled.png)
+![NotionDown 工作流程示意图](/assets/notiondown_gong_zuo_liu_cheng_shi_yi_tu_notiondown.png)
 
-## NotionDown
+## NotionDown Project
 
-基于 CAP 编程原则，一开始我抱着侥幸的心态去 GitHub 上面搜索，还真让我找到了类似的工程 notoma。不过项目还处于 WIP  状态，等了快一年作者还是没有什么动作，Demo 还是处于无法运行的状态，所以我索性自己开始动手了。
+基于 CAP 编程原则，能复制的代码绝不自己写，一开始我抱着侥幸的心态去 GitHub 上面搜索，还真让我找到了类似的工程 [notoma](https://github.com/nategadzhi/notoma)。不过项目还处于 WIP  状态，等了快一年作者还没有什么动作，Demo 也是处于无法运行的状态，所以我索性自己动手好了。
 
-自己写一个 3rd-party 的 Notion APIs 不太现实，好在同样 GitHub 上面已经有先驱做了类似的项目 notion-py，相比这下站个项目的完成度已经非常高了（唯一的遗憾就是尚未支持 Notion private 笔记的访问）。
+自己写一个 3rd-party 的 Notion APIs 不太现实，好在同样的 GitHub 上面已经有先驱做了类似的项目 [notion-py](https://github.com/jamalex/notion-py)，相比之下这个项目的完成度已经非常高了（目前唯一的遗憾就是尚未支持 Notion private 笔记的访问，且项目开发文档有限）。
 
-基于 notion-py 我写了一个用来支撑自己知识管理的 Notion 笔记导出项目 notion-down，主要原来自动到处 MD 文件和部署博客（配合 circleci）。
+基于 notion-py 我写了一个用来支撑自己知识管理的 Notion 笔记导出项目 [notion-down](https://github.com/kaedea/notion-down)，主要用来自动从云笔记导出 MD 文件和部署博客（配合 circleci + 静态博客）。
 
 NotionDown 的主要功能如下：
 
-1. 统一在 Notion 上编辑笔记。
-1. 基于 Notion 笔记解析相应的 MD 文件（支持图片配置）。
-1. 自动部署指定文章到静态博客（Hexo）。
-1. 相关配套的集成功能：图片 CDN 配置，文章内容按渠道配置动态调整（自定义短代码），中英混排优化（pangu）和拼写检查。
+1. 统一在 Notion 平台上编辑笔记（集大成）。
+1. 基于 Notion 笔记 + 相应的编译配置，解析所需的 MD 文件（必须支持图片配置）。
+1. 根据配置将需要 Publish 的文章自动部署指定的静态博客（Hexo）。
+1. 相关配套的集成功能：图床配置，自定义短代码（如生成的文章内容按渠道配置动态调整），中英混排优化（pangu），拼写检查（双拼用户刚需）。
 
-以后是不是可以专心写作了？🤣~~（鬼咧，正经 Bloger 谁写文章啊，不都是在折腾博客主题吗。）~~
+如此一来，以后岂不是可以专心写作了？🤣~~（鬼咧，正经 Bloger 谁写文章啊，不都是在折腾博客主题吗。）~~
 
-## 其他解决方案
+## Substitute
 
-如果只是需要自动把 Notion 文章部署到静态博客，我这发现一个更简单的解决方案：[Notion + GatsbyJs + Netlify 极致的博客体验](https://chenhuichao.com/c32f80ee1ca84d45aaf63ee170e3c267)。
+如果只是需要自动把 Notion 上面的笔记部署到静态博客，我这发现一个更简单的解决方案：[Notion + GatsbyJs + Netlify 极致的博客体验](https://chenhuichao.com/c32f80ee1ca84d45aaf63ee170e3c267)。
 
-其基本思路是通过 Netlify 作为 Trigger 触发 GatsbyJs 插件读取 Notion 笔记数据存放到 Gatsby 平台，最终通过 Gatsby 提供的博客服务展示博客内容。有兴趣可以了解 [Gatsby](https://www.gatsbyjs.com/)，这套方案可以节省 circleci 和静态博客 generating 等中间流程。
-
+其基本思路是通过 Netlify 作为 Trigger 触发 GatsbyJs 插件服务读取 Notion 笔记数据，并存放到 Gatsby 平台，最终通过 Gatsby 提供的博客服务展示博客内容。有兴趣可以了解一下 [Gatsby](https://www.gatsbyjs.com/)，这套方案可以节省 circleci 和静态博客 generating 等不少中间流程。
 
 
 
